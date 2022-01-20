@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
+@Index("username", ["username"], { unique: true })
 @Entity("administrator", { schema: "perionica_vasic" })
 export class Administrator {
   @PrimaryGeneratedColumn({
@@ -9,9 +10,9 @@ export class Administrator {
   })
   administratorId: number;
 
-  @Column("varchar", { name: "username", length: 50, default: () => "'0'" })
+  @Column("varchar", { name: "username", unique: true, length: 50 })
   username: string;
 
-  @Column("varchar", { name: "email", length: 50, default: () => "'0'" })
-  email: string;
+  @Column("varchar", { name: "password_hash", length: 255 })
+  passwordHash: string;
 }
