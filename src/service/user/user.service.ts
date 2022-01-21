@@ -19,15 +19,11 @@ export default class UserService {
             user.surname = data.surname;
             user.email = data.email;
 
-            if(data.message) {
-                user.message = data.message;
-            }
+            if(data.message) user.message = data.message;
 
             const savedUser = await this.userService.save(user);
 
-            if(!savedUser) {
-                return new ApiResponse('error', -1001, 'Recording error')
-            }
+            if(!savedUser) return new ApiResponse('error', -1001, 'Recording error')
 
             return savedUser;
         } catch (error) {

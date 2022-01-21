@@ -38,9 +38,8 @@ export default class MailerService{
                 encoding: 'UTF-8',
                 html: body
             }
-
-            const result = await transtort.sendMail(mailerOptions)
-            return result;
+            
+            return await transtort.sendMail(mailerOptions);
         } catch (error) {
             return error;
         }

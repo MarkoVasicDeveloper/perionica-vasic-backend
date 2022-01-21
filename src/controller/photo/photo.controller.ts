@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { Controller, HttpException, HttpStatus, Param, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
-// import {fileTypeFromFile} from 'file-type';
 import { FileInterceptor } from "@nestjs/platform-express";
 import { photoConfig } from "config/photo.config";
 import { diskStorage } from 'multer';
@@ -59,13 +58,6 @@ export default class PhotoController{
             if(!photo) {
                 return new ApiResponse('error', -3001, 'Photo is not saved')
             }
-    
-            // const mimetype = await fileTypeFromFile(photo.path);
-    
-            // if(!(mimetype.mime.includes('jpeg') || mimetype.mime.includes('png'))) {
-            //     fs.unlinkSync(photo.path)
-            //     return 'Must be png or jpeg';
-            // }
     
             const newPhoto = new Photo();
             newPhoto.photoPath = photo.filename;

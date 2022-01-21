@@ -20,9 +20,7 @@ export default class AdministratorService {
             administrator.username = data.username;
             administrator.passwordHash = PasswordHash(data.password);
 
-            const savedAdministrator = await this.administratorService.save(administrator);
-
-            return savedAdministrator;
+            return await this.administratorService.save(administrator);
             
         } catch (error) {
             new ApiResponse('error', -4001, 'Username is busy')

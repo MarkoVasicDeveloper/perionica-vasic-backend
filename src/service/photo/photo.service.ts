@@ -17,9 +17,7 @@ export default class PhotoService {
 
         const savedPhoto = await this.photoService.save(photo);
 
-        if(!savedPhoto) {
-            return new ApiResponse('error', -2001, 'Photo is not saved')
-        }
+        if(!savedPhoto) return new ApiResponse('error', -2001, 'Photo is not saved');
 
         return photo;
     }

@@ -4,7 +4,7 @@ import { Body, Controller, Post } from "@nestjs/common";
 import AddUserDto from "dto/user/add.user.dto";
 import { User } from "entities/User";
 import ApiResponse from "misc/api.response";
-import { MailerConfig } from "misc/mailer.dto";
+import { MailerConfig } from "misc/mailer.body";
 import MailerService from "src/service/mailer/mailer.service";
 import UserService from "src/service/user/user.service";
 
