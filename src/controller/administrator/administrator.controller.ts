@@ -18,6 +18,6 @@ export default class AdministratorController {
 
     @Post('loginAdministrator')
     async loginAdministrator(@Body() data: LoginAdministratorDto):Promise <ApiResponse> {
-        return this.administratorService.administratorLogin(data);
+        return await this.administratorService.administratorLogin(data);
     }
 }

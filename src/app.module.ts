@@ -7,9 +7,11 @@ import { Photo } from 'entities/Photo';
 import { RefreshToken } from 'entities/RefreshToken';
 import { User } from 'entities/User';
 import AdministratorController from './controller/administrator/administrator.controller';
+import MailerController from './controller/mailer/mailer.controller';
 import PhotoController from './controller/photo/photo.controller';
 import UserController from './controller/user/user.controller';
 import AdministratorService from './service/administrator/administrator.service';
+import MailerService from './service/mailer/mailer.service';
 import PhotoService from './service/photo/photo.service';
 import UserService from './service/user/user.service';
 
@@ -27,13 +29,13 @@ import UserService from './service/user/user.service';
     }),
     TypeOrmModule.forFeature([
       Administrator, RefreshToken, User, Photo
-    ])
+    ]),
   ],
   controllers: [
-    UserController, PhotoController, AdministratorController
+    UserController, PhotoController, AdministratorController, MailerController
   ],
   providers: [
-    UserService, PhotoService, AdministratorService
+    UserService, PhotoService, AdministratorService, MailerService
   ],
 })
 export class AppModule {}
