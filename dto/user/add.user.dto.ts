@@ -17,5 +17,7 @@ export default class AddUserDto {
     @validator.IsString()
     @validator.Length(3, 50)
     email: string
+
+    @validator.IsString()
     message?: string
 }

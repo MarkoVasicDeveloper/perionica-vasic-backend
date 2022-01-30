@@ -3,8 +3,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigDatabase } from 'config/config.database';
 import { Administrator } from 'entities/Administrator';
+import { Message } from 'entities/Message';
 import { Photo } from 'entities/Photo';
-import { RefreshToken } from 'entities/RefreshToken';
 import { User } from 'entities/User';
 import AdministratorController from './controller/administrator/administrator.controller';
 import MailerController from './controller/mailer/mailer.controller';
@@ -23,19 +23,16 @@ import UserService from './service/user/user.service';
       port: ConfigDatabase.port,
       username: ConfigDatabase.username,
       password: ConfigDatabase.password,
-      entities: [
-        Administrator, RefreshToken, User, Photo
-      ]
+      entities: [Administrator, User, Photo, Message],
     }),
-    TypeOrmModule.forFeature([
-      Administrator, RefreshToken, User, Photo
-    ]),
+    TypeOrmModule.forFeature([Administrator, User, Photo, Message]),
   ],
   controllers: [
-    UserController, PhotoController, AdministratorController, MailerController
+    UserController,
+    PhotoController,
+    AdministratorController,
+    MailerController,
   ],
-  providers: [
-    UserService, PhotoService, AdministratorService, MailerService
-  ],
+  providers: [UserService, PhotoService, AdministratorService, MailerService],
 })
 export class AppModule {}
